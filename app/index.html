@@ -14,7 +14,7 @@
 
 
 </head>
-<body ng-controller="RootController as root" layout="column">
+<body ng-controller="RootController as root" layout="column" ng-cloak>
 <md-toolbar class="md-hue-2">
     <div class="md-toolbar-tools">
 
@@ -61,11 +61,16 @@
         </div>
         <canvas id="bar"
                 class="chart-base"
+                ng-show="root.isShowChart"
                 chart-series="root.series"
                 chart-type="root.currentChart"
                 chart-data="root.data"
                 chart-labels="root.labels">
         </canvas>
+
+        <h2 ng-hide="root.isShowChart" class="md-display-1">No duplicates words in this text</h2>
+
+
     </div>
 </md-content>
 

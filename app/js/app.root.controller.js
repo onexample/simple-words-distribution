@@ -14,40 +14,47 @@
 
         var self=this;
 
+
+        /**
+         *
+         * @desc View block, all html binds described here
+         */
         self.file=null;
         self.fileString=null;
+        self.labels=null;
+        self.currentChart=null;
+        self.data=null;
+        self.charts=null;
+        self.series=null;
+        self.isShowChart=null;
         self.showContent=showContent;
-        self.readFile=readFile;
         self.calculateWords=calculateWords;
         self.takeExample=takeExample;
         self.clear=clear;
 
 
+
         activate();
 
 
-
-
+        /**
+         * @desc activates all default values;
+         */
         function activate(){
-
+            self.isShowChart=true;
             self.charts=HistogramService.getCharts();
             self.currentChart=self.charts[1];
             self.labels = [];
             self.series = ['Repeatable Words'];
             self.data = [[]];
-
         }
+
+
 
         function takeExample(){
-            self.fileString="ProgForce, more than anything else, is a league of extraordinary talent" +
-                "- sought, refined, and dedicated to providing the most impeccable " +
-                "intelligence and service. Our team of professional software developers" +
-                " are specially chosen through a process of selection based not only on" +
-                " training, but conception and creative application. Our people don't just" +
-                " plug in the numbers. Our people create custom solutions for custom needs.";
+            self.fileString=HistogramService.getExample();
             calculateWords();
         }
-
 
         function clear(){
             self.fileString='';
@@ -62,39 +69,16 @@
                     self.labels.push(val[0]);
                     self.data[0].push(val[1]);
                 }
+                self.isShowChart=true;
             }else{
-
+                self.isShowChart=false;
             }
-
-
         }
 
         function showContent($fileContent){
             self.fileString = $fileContent;
+            calculateWords();
         }
-
-        function readFile(){
-            var reader=new FileReader();
-
-            //reader.readAsBinaryString(self.file.lfFile)
-
-
-            reader.onload=function(){
-                console.log(reader.result)
-            };
-
-            reader.readAsText(self.file[0].file)
-
-
-
-
-        }
-
-
-
-
-
-
 
 
     }

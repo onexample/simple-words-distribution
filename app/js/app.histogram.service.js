@@ -16,8 +16,16 @@
 
         return {
             getWordsHistogram:getWordsHistogram,
-            getCharts:getCharts
+            getCharts:getCharts,
+            getExample:getExample
         };
+
+
+        /**
+         * @desc string as input, histogram map as output
+         * @param str
+         * @returns {Map|*}
+         */
 
 
         function getWordsHistogram(str){
@@ -58,6 +66,12 @@
         }
 
 
+        /**
+         *
+         * @returns {string[]}
+         */
+
+
         function getCharts(){
             return [
                 'Line',
@@ -65,6 +79,17 @@
                 'Radar'
             ]
         }
+
+
+        function getExample(){
+            return "ProgForce, more than anything else, is a league of extraordinary talent" +
+                "- sought, refined, and dedicated to providing the most impeccable " +
+                "intelligence and service. Our team of professional software developers" +
+                " are specially chosen through a process of selection based not only on" +
+                " training, but conception and creative application. Our people don't just" +
+                " plug in the numbers. Our people create custom solutions for custom needs.";
+        }
+
 
     }
 
