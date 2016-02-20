@@ -1,0 +1,23 @@
+{
+  "name": "simple-words-distribution",
+  "version": "0.0.1",
+  "homepage": "https://github.com/onexample/simple-words-distribution",
+  "authors": [
+    "Vladyslav <onexample@gmail.com>"
+  ],
+  "main": "app.js",
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "app/bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "angular-chart.js": "~0.8.8",
+    "angular-material": "~1.0.5",
+    "lf-ng-md-file-input": "~1.3.1"
+  }
+}

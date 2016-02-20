@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html ng-app="WordsDistribution">
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>Words Distribution</title>
+
+    <link rel="stylesheet" href="bower_components/angular-chart.js/dist/angular-chart.css">
+    <link rel="stylesheet" href="bower_components/angular-material/angular-material.css">
+    <link rel="stylesheet" href="bower_components/lf-ng-md-file-input/dist/lf-ng-md-file-input.css">
+    <link rel="stylesheet" href="css/index.css"/>
+
+
+
+
+</head>
+<body ng-controller="RootController as root" layout="column">
+
+
+<md-toolbar>
+    <div class="md-toolbar-tools">
+
+        <h2 flex layout="row" layout-align="center center">
+            <span>Simple Words Distribution</span>
+        </h2>
+
+    </div>
+</md-toolbar>
+<md-content flex layout="row">
+
+    <div layout="column" flex="33">
+
+        <form name="fileForm">
+        <!--<lf-ng-md-file-input lf-files="root.file" accept=".txt" ></lf-ng-md-file-input>-->
+
+       <!--<md-button>-->
+           <!--<label>Title</label>-->
+           <!--<input type="file" style="display: none">-->
+       <!--</md-button>-->
+        <!--<md-input-container>-->
+            <!--<label>Title</label>-->
+            <!--<input   type="file" ng-model="root.FILE">-->
+        <!--</md-input-container>-->
+
+        <input type="file" on-read-file="root.showContent($fileContent)"/>
+        <!--<pre>{{root.file}}</pre>-->
+
+        <md-input-container class="md-block">
+            <div ng-messages="fileForm.file.$error">
+                <div ng-message="md-maxlength">That's too long!</div>
+            </div>
+            <label>Choose File or Copy Text Here</label>
+            <textarea name="file" ng-model="root.fileString" md-maxlength="2000"></textarea>
+
+        </md-input-container>
+
+        <!--<md-content flex layout-padding>-->
+            <!--<p ng-bind="root.fileString"></p>-->
+        <!--</md-content>-->
+        <!--<pre>{{root.fileString}}</pre>-->
+
+
+        <!--<md-button ng-click="root.readFile()">-->
+            <!--read file-->
+        <!--</md-button>-->
+
+            <md-button ng-click="root.calculateWords()" class="md-raised">
+                Calculate
+            </md-button>
+
+        </form>
+    </div>
+
+
+
+    <div layout="column" flex>
+
+
+
+        <canvas id="bar" class="chart chart-bar"
+                chart-data="root.data" chart-labels="root.labels"> chart-series="series"
+        </canvas>
+
+        <pre>{{root.tmp | json}}</pre>
+
+    </div>
+
+
+
+
+
+</md-content>
+
+
+
+
+
+
+<!--LIBS-->
+<script src="bower_components/Chart.js/Chart.js"></script>
+<script src="bower_components/angular/angular.js"></script>
+<script src="bower_components/angular-chart.js/dist/angular-chart.js"></script>
+<script src="bower_components/angular-aria/angular-aria.js"></script>
+<script src="bower_components/angular-animate/angular-animate.js"></script>
+<script src="bower_components/angular-material/angular-material.js"></script>
+<script src="bower_components/lf-ng-md-file-input/dist/lf-ng-md-file-input.js"></script>
+
+<!--SRC-->
+<script src="js/app.js"></script>
+<script src="js/app.histogram.service.js"></script>
+<script src="js/app.root.controller.js"></script>
+
+</body>
+</html>

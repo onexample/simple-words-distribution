@@ -1,0 +1,18 @@
+{
+  "name": "simple-words-distribution",
+  "version": "0.0.1",
+  "description": "calculate words distribution in text",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/onexample/simple-words-distribution.git"
+  },
+  "author": "Vladyslav",
+  "license": "BSD-2-Clause",
+  "bugs": {
+    "url": "https://github.com/onexample/simple-words-distribution/issues"
+  }
+}
