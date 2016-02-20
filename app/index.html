@@ -4,95 +4,70 @@
     <meta charset="UTF-8">
     <title>Words Distribution</title>
 
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons"
+          rel="stylesheet">
+
     <link rel="stylesheet" href="bower_components/angular-chart.js/dist/angular-chart.css">
     <link rel="stylesheet" href="bower_components/angular-material/angular-material.css">
     <link rel="stylesheet" href="bower_components/lf-ng-md-file-input/dist/lf-ng-md-file-input.css">
     <link rel="stylesheet" href="css/index.css"/>
 
 
-
-
 </head>
 <body ng-controller="RootController as root" layout="column">
-
-
-<md-toolbar>
+<md-toolbar class="md-hue-2">
     <div class="md-toolbar-tools">
 
         <h2 flex layout="row" layout-align="center center">
-            <span>Simple Words Distribution</span>
+            <span>Duplicates Words Distribution</span>
         </h2>
 
     </div>
 </md-toolbar>
-<md-content flex layout="row">
-
-    <div layout="column" flex="33">
-
-        <form name="fileForm">
-        <!--<lf-ng-md-file-input lf-files="root.file" accept=".txt" ></lf-ng-md-file-input>-->
-
-       <!--<md-button>-->
-           <!--<label>Title</label>-->
-           <!--<input type="file" style="display: none">-->
-       <!--</md-button>-->
-        <!--<md-input-container>-->
-            <!--<label>Title</label>-->
-            <!--<input   type="file" ng-model="root.FILE">-->
-        <!--</md-input-container>-->
-
-        <input type="file" on-read-file="root.showContent($fileContent)"/>
-        <!--<pre>{{root.file}}</pre>-->
-
-        <md-input-container class="md-block">
-            <div ng-messages="fileForm.file.$error">
-                <div ng-message="md-maxlength">That's too long!</div>
-            </div>
-            <label>Choose File or Copy Text Here</label>
-            <textarea name="file" ng-model="root.fileString" md-maxlength="2000"></textarea>
-
-        </md-input-container>
-
-        <!--<md-content flex layout-padding>-->
-            <!--<p ng-bind="root.fileString"></p>-->
-        <!--</md-content>-->
-        <!--<pre>{{root.fileString}}</pre>-->
-
-
-        <!--<md-button ng-click="root.readFile()">-->
-            <!--read file-->
-        <!--</md-button>-->
-
-            <md-button ng-click="root.calculateWords()" class="md-raised">
+<md-content flex layout-gt-sm="row">
+    <div layout="column" layout-padding flex-gt-sm="40">
+        <div layout-gt-sm="row" layout-align="space-around center">
+            <md-button class="md-fab md-mini md-hue-2" aria-label="Use Android">
+                <md-icon class="material-icons">file_upload</md-icon>
+                <input type="file" accept=".txt" on-read-file="root.showContent($fileContent)"/>
+            </md-button>
+            <md-button class="md-raised" ng-click="root.clear()">
+                Clear
+            </md-button>
+            <md-button ng-click="root.calculateWords()" class="md-raised md-primary">
                 Calculate
             </md-button>
-
+            <md-button class="md-raised md-warn md-hue-2" ng-click="root.takeExample()">
+                Example
+            </md-button>
+        </div>
+        <form name="fileForm" flex>
+            <md-input-container class="md-block" flex>
+                <div ng-messages="fileForm.file.$error">
+                    <div ng-message="md-maxlength">That's too long!</div>
+                </div>
+                <label>Choose File or Copy Text Here</label>
+                <textarea name="file" ng-model="root.fileString"></textarea>
+            </md-input-container>
         </form>
     </div>
-
-
-
-    <div layout="column" flex>
-
-
-
-        <canvas id="bar" class="chart chart-bar"
-                chart-data="root.data" chart-labels="root.labels"> chart-series="series"
+    <div layout="column" layout-padding flex>
+        <div layout-gt-sm="row">
+            <md-select ng-model="root.currentChart" flex="33" aria-label="chart">
+                <md-option ng-repeat="chart in root.charts" ng-value="chart">
+                    {{chart}}
+                </md-option>
+            </md-select>
+        </div>
+        <canvas id="bar"
+                class="chart-base"
+                chart-series="root.series"
+                chart-type="root.currentChart"
+                chart-data="root.data"
+                chart-labels="root.labels">
         </canvas>
-
-        <pre>{{root.tmp | json}}</pre>
-
     </div>
-
-
-
-
-
 </md-content>
-
-
-
-
 
 
 <!--LIBS-->
