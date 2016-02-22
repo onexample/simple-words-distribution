@@ -9,4 +9,4 @@
 
 
 
-[DEMO](http://codepen.io/onexample/full/XXLPKK/)
+[DEMO](http://codepen.io/onexample/pen/LGKBwW)
