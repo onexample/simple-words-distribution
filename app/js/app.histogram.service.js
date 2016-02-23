@@ -82,12 +82,19 @@
 
 
         function getExample(){
-            return "ProgForce, more than anything else, is a league of extraordinary talent" +
-                "- sought, refined, and dedicated to providing the most impeccable " +
-                "intelligence and service. Our team of professional software developers" +
-                " are specially chosen through a process of selection based not only on" +
-                " training, but conception and creative application. Our people don't just" +
-                " plug in the numbers. Our people create custom solutions for custom needs.";
+            return "The Linux Foundation protects and promotes " +
+                "the ideals of freedom and generous collaboration " +
+                "established through the development of Linux, and " +
+                "shares these ideals to power any endeavor " +
+                "aiming to make the future a better place in which to live. " +
+                "By supporting the kernel development community and fostering " +
+                "collaboration on a truly massive scale, the Linux Foundation " +
+                "unites thousands of curious minds in the free and open exchange of ideas. " +
+                "We are here to provide the crucial services and collaborative " +
+                "infrastructure to continue Linux's advancement and protection, " +
+                "and we're here to serve as a tour guide for companies who need " +
+                "to build an open source strategy for their business and make " +
+                "the most of the new collaborative software economy."
         }
 
 
